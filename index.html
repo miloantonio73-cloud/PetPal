@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>PetPal - Benvenuto!</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+    button { margin: 10px; padding: 10px 20px; font-size: 16px; }
+    #promemoria, #galleria { margin-top:40px; text-align:center; display:block; }
+    #lista-foto { display:flex; flex-wrap:wrap; justify-content:center; margin-top:20px; }
+  </style>
+</head>
+<body>
+  <h1>🐾 Benvenuto su PetPal Cloud+</h1>
+  <p>La tua app per gli amici a quattro zampe è online!</p>
+
+  <h2>Prova le funzioni reali</h2>
+  <button onclick="loginGoogle()">Accedi con Google</button>
+  <button onclick="caricaFoto()">Carica foto demo</button>
+  <button onclick="salvaPromemoria()">Ricorda vaccino</button>
+  <button onclick="mostraPromemoria()">Mostra promemoria</button>
+
+  <h2>Carica una foto vera</h2>
+  <input type="file" id="fileInput" />
+  <button onclick="caricaFotoReale(document.getElementById('fileInput').files[0])">Carica foto reale</button>
+  <div id="link-foto" style="margin-top:20px;"></div>
+
+  <div id="promemoria">
+    <h3>📋 Lista Promemoria</h3>
+    <ul id="lista-promemoria"></ul>
+  </div>
+
+  <div id="galleria">
+    <h3>🖼️ Galleria Foto</h3>
+    <button onclick="mostraGalleriaFoto()">Mostra galleria foto</button>
+    <div id="lista-foto"></div>
+  </div>
+
+  <script type="module">
+    import { loginGoogle, caricaFoto, salvaPromemoria, mostraPromemoria, caricaFotoReale, mostraGalleriaFoto } from "../cloud.js";
+    window.loginGoogle = loginGoogle;
+    window.caricaFoto = caricaFoto;
+    window.salvaPromemoria = salvaPromemoria;
+    window.mostraPromemoria = mostraPromemoria;
+    window.caricaFotoReale = caricaFotoReale;
+    window.mostraGalleriaFoto = mostraGalleriaFoto;
+  </script>
+</body>
+</html>
